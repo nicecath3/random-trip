@@ -1,0 +1,159 @@
+@use '@/app/styles/tokens' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sub {
+  font-size: 11px;
+  font-weight: 600;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 800;
+  color: $accent;
+  letter-spacing: -1px;
+}
+
+.resetBtn {
+  margin-top: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1.5px solid $border;
+  background: $surface;
+  color: $text-sub;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+    background: #f0f5ff;
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  background: $bg;
+  padding: 4px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.tab {
+  padding: 7px 18px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  color: $text-sub;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover { color: $primary; }
+
+  &.active {
+    background: $surface;
+    color: $primary;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.status {
+  color: $text-muted;
+  font-size: 14px;
+  text-align: center;
+  padding: 60px 0;
+  font-weight: 500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  border-radius: 12px;
+  border: 1px solid $border;
+  background: $surface;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+
+  &:hover {
+    border-color: #c7d9fd;
+    box-shadow: 0 4px 16px rgba(79, 142, 247, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.spotTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: $text;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.address {
+  font-size: 12px;
+  color: $text-muted;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.phone {
+  font-size: 12px;
+  color: $text-sub;
+  font-weight: 500;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: $primary;
+  padding: 6px 12px;
+  background: #f0f5ff;
+  border-radius: 6px;
+  width: fit-content;
+  transition: background 0.15s;
+
+  &:hover { background: #ddeaff; }
+}

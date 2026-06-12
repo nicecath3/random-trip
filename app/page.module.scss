@@ -1,0 +1,189 @@
+@use './styles/tokens' as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 32px;
+  height: 56px;
+  background: $surface;
+  border-bottom: 1px solid $border;
+  flex-shrink: 0;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: $primary;
+  letter-spacing: -0.5px;
+}
+
+.logoSub {
+  font-size: 12px;
+  color: $text-muted;
+  font-weight: 500;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 20px;
+  background: $surface;
+  border-right: 1px solid $border;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+
+.sidebarLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  align-self: flex-start;
+}
+
+.spinBtn {
+  padding: 11px 0;
+  border-radius: 10px;
+  border: none;
+  background: $primary;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s, transform 0.15s;
+  letter-spacing: -0.2px;
+
+  &:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+  &.spinning { animation: pulse 0.8s ease-in-out infinite; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 0.85; }
+}
+
+.panel {
+  flex: 1;
+  padding: 28px 32px;
+  overflow-y: auto;
+  height: calc(100vh - 56px);
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 14px;
+  opacity: 0.6;
+}
+
+.placeholderIcon { font-size: 52px; }
+
+.placeholderText {
+  font-size: 15px;
+  color: $text-sub;
+  text-align: center;
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+.subPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+.subTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 4px;
+}
+
+.subTitle {
+  font-size: 26px;
+  font-weight: 800;
+  color: $text;
+  letter-spacing: -0.8px;
+}
+
+.subSpinBtn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background: $primary;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s, transform 0.15s;
+  letter-spacing: -0.2px;
+
+  &:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+  &.spinning { animation: pulse 0.8s ease-in-out infinite; }
+}
+
+.subMapWrap {
+  flex: 1;
+  background: $surface;
+  border-radius: 16px;
+  border: 1px solid $border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  min-height: 0;
+}
+
+@media (max-width: 768px) {
+  .body { flex-direction: column; }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid $border;
+    padding: 20px;
+  }
+
+  .panel {
+    height: auto;
+    padding: 20px;
+  }
+}

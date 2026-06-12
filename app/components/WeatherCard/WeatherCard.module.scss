@@ -1,0 +1,105 @@
+@use '@/app/styles/tokens' as *;
+
+.card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.datePicker::-webkit-clear-button,
+.datePicker::-webkit-inner-spin-button {
+  display: none;
+}
+
+.datePicker {
+  font-size: 13px;
+  font-weight: 500;
+  color: $primary;
+  border: 1.5px solid $border;
+  border-radius: 8px;
+  padding: 4px 8px;
+  background: $bg;
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+
+  &:focus { border-color: $primary; }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+}
+
+.temp {
+  font-size: 36px;
+  font-weight: 800;
+  color: $text;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.desc {
+  font-size: 13px;
+  color: $text-sub;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.details {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  span {
+    font-size: 12px;
+    color: $text-sub;
+    font-weight: 500;
+    background: $bg;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+}
+
+.status {
+  font-size: 13px;
+  color: $text-muted;
+  font-weight: 500;
+}
+
+.statusError {
+  font-size: 13px;
+  color: #ef4444;
+  font-weight: 500;
+}

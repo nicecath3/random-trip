@@ -1,0 +1,17 @@
+@use '@/app/styles/tokens' as *;
+
+.svg {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+}
+
+.region {
+  fill: #dde8f7;
+  stroke: $surface;
+  stroke-width: 1.5;
+  transition: fill 0.12s ease;
+
+  &.highlighted { fill: $primary; stroke: $surface; }
+  &.selected    { fill: $accent;  stroke: $surface; }
+}
