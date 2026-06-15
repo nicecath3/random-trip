@@ -40,17 +40,16 @@ export function TravelResult({ region, onReset }: TravelResultProps) {
 
     const fetchAll = async () => {
       try {
-        const results: Spot[] = [];
-        for (let page = 1; page <= 3; page++) {
-          const res = await fetch(
-            `/api/travel?region=${encodeURIComponent(region.name)}&category=${category}&page=${page}`
-          );
-          const data = await res.json();
+        const pages = await Promise.all(
+          [1, 2, 3].map((page) =>
+            fetch(`/api/travel?region=${encodeURIComponent(region.name)}&category=${category}&page=${page}`)
+              .then((res) => res.json())
+          )
+        );
+        for (const data of pages) {
           if (data.error) throw new Error(data.error);
-          results.push(...(data.spots ?? []));
-          if (data.isEnd) break;
         }
-        setSpots(results);
+        setSpots(pages.flatMap((data) => data.spots ?? []));
       } catch (e: any) {
         setError(e.message);
       } finally {
